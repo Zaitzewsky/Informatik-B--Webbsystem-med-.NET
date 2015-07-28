@@ -1,0 +1,12 @@
+﻿@model Datingsite.Models.SearchModel
+@using (Html.BeginForm("SearchResult", "Search"))
+{
+    <div id="Search">
+        @Html.LabelFor(x => x.Search)
+        @Html.TextBoxFor(x => x.Search)
+
+        <input id="SearchSubmit" type="submit" value="Sök"/>
+        <br /><br /><br />
+        @Html.ValidationMessageFor(x => x.Search)
+    </div>
+}

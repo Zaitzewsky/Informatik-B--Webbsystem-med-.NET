@@ -1,0 +1,83 @@
+﻿@using System.Web.UI.WebControls
+@using Datingsite.DropDownLists
+
+
+@model Datingsite.Models.HomeIndexViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink("Logga in", "Login", "Login", null, new { @id = "login" })
+
+<div id="RegistrationWindow1">
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <div id="Registration2">
+            @Html.LabelFor(x => x.FirstName)<br />
+            @Html.TextBoxFor(x => x.FirstName)<br/>
+            @Html.ValidationMessageFor(x => x.FirstName)<br />
+
+
+            @Html.LabelFor(x => x.LastName)<br />
+            @Html.TextBoxFor(x => x.LastName)<br/>
+            @Html.ValidationMessageFor(x => x.LastName)<br />
+
+            @Html.LabelFor(x => x.Phone)<br />
+            @Html.TextBoxFor(x => x.Phone)<br/>
+            @Html.ValidationMessageFor(x => x.Phone)<br />
+
+            @Html.LabelFor(x => x.Age)<br />
+            @Html.TextBoxFor(x => x.Age)<br/>
+            @Html.ValidationMessageFor(x => x.Age)<br />
+
+            @Html.LabelFor(x => x.Gender)<br />
+            @Html.DropDownListFor(x => x.Gender,
+                new SelectList(GenderList.genderList, "GenderID", "GenderName"))<br/>
+            @Html.ValidationMessageFor(x => x.Gender)<br />
+
+            @Html.LabelFor(x => x.Email)<br />
+            @Html.TextBoxFor(x => x.Email)<br/>
+            @Html.ValidationMessageFor(x => x.Email)<br/>
+            @Html.ValidationSummary(true)
+
+
+        </div>
+        <div id="Registration">
+
+            @Html.LabelFor(x => x.ProfileStatus)<br />
+            @Html.DropDownListFor(x => x.ProfileStatus,
+                new SelectList(ProfileStatusList.profileStatusList, "ProfileID", "Status"))<br/>
+            @Html.ValidationMessageFor(x => x.ProfileStatus)<br />
+
+            @Html.LabelFor(x => x.City)<br />
+            @Html.TextBoxFor(x => x.City)<br/>
+            @Html.ValidationMessageFor(x => x.City)<br />
+
+            @Html.LabelFor(x => x.PreferedGender)<br />
+            @Html.DropDownListFor(x => x.PreferedGender,
+                new SelectList(PreferedGenderList.preferedGenderList, "PreferedGenderID", "PreferedGenderName"))<br/>
+            @Html.ValidationMessageFor(x => x.PreferedGender)<br />
+            
+
+            @Html.LabelFor(x => x.LoginName)<br />
+            @Html.TextBoxFor(x => x.LoginName)<br/>
+            @Html.ValidationMessageFor(x => x.LoginName)<br />
+
+            @Html.LabelFor(x => x.Password)<br />
+            @Html.PasswordFor(x => x.Password)<br/>
+            @Html.ValidationMessageFor(x => x.Password)<br />
+
+            @Html.LabelFor(x => x.ConfirmPassword)<br />
+            @Html.PasswordFor(x => x.ConfirmPassword)<br/>
+            @Html.ValidationMessageFor(x => x.ConfirmPassword)<br />
+            
+        </div>
+        <input id="submitRegistration" type="submit" value="Registrera dig" /><br />
+        
+        
+    
+    }
+
+
+</div>

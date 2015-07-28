@@ -1,0 +1,44 @@
+﻿@using Datingsite.Models
+@model Datingsite.Models.FriendsListModel.FriendsListModel
+@{
+    ViewBag.Title = "FriendRequest";
+}
+
+@{
+    Layout = "~/Views/Shared/_LayoutLoggedIn.cshtml";
+}
+
+
+<div id="SearchField">
+    @Html.Partial("_SearchFieldPartialView", new SearchModel())
+</div>
+
+@Html.ActionLink(@Model.LoggedInUser.FirstName + " " + @Model.LoggedInUser.LastName, "ProfileStart", "UserProfile", null, new { @id = "UserProfileButton" })
+@foreach (var user in Model.FriendRequests)
+{
+    Model.countFriendRequests++;
+}
+@* Visar antalet friendrequests genom att lägga ikonen för en user med antalet friendrquests som tas fram i koden ovan *@
+<div id="FriendRequest">
+    <button class="btn btn-default" aria-expanded="true" type="button">
+        @Html.ActionLink("" + @Model.countFriendRequests, "FriendRequests", "FriendRequest", new { userID = @Model.LoggedInUser.UserID }, new { @class = "glyphicon glyphicon-user" })
+    </button>
+</div>
+
+<div id="FriendList">
+    <br /><br />
+    <h2>FriendRequest</h2>
+    <ul>
+        @* Loopar igenom alla friendrequests och 1 är acceptera och 2 är neka *@
+        @foreach (var user in Model.FriendRequests)
+        {
+
+            <li>
+                @Html.ActionLink(@user.User1.FirstName + " " + @user.User1.LastName, "ProfileStartForOtherUser", "UserProfile", new { userID = @user.User1.UserID }, null)
+                @Html.ActionLink("Acceptera Vänförfrågan", "AnswerFriendRequest", "FriendRequest", new { userID = @user.User1.UserID, answer = 1 }, null)
+                @Html.ActionLink("Neka Vänförfrågan", "AnswerFriendRequest", "FriendRequest", new { userID = @user.User1.UserID , answer = 2 }, null)
+            </li>
+        }
+    </ul>
+
+</div>

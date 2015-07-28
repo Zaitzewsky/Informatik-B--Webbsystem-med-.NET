@@ -1,0 +1,51 @@
+﻿
+@using DAL
+@using DAL.Repositories
+@*@model Datingsite.Models.UserProfileModel.UserProfileModel*@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/CSS/Registration.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    </head>
+<body>
+    <header id="LoggedinHeader">
+        <div id="ProfilLogoText">
+            O Partner,Where Art Thou?
+        </div>
+        
+            <div id="Kugghjulet" class="btn-group">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                <span class="glyphicon glyphicon-cog"></span>
+            </button>
+            <ul class="dropdown-menu list-inline" role="menu" aria-labelledby="dropdownMenu1">
+                <li>@Html.ActionLink("Profil", "ProfileStart", "UserProfile", null, new { @id = "ProfilLink" })</li>
+                <li>@Html.ActionLink("Redigera profil", "EditProfile", "EditProfile", null, new { @id = "EditProfilLink" })</li>
+            </ul>
+        </div>
+
+
+        <div id="dropdownLoggaut" class="dropdown">
+            <button class="btn btn-default" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                <li>@Html.ActionLink("Logga ut", "LogOut", "Login")</li>
+            </ul>
+        </div>
+
+    </header>
+    <br />
+   
+   @RenderBody()
+
+</body>
+</html>

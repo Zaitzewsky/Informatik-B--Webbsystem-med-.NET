@@ -1,0 +1,23 @@
+﻿@model Datingsite.Models.SearchModel
+@using (Html.BeginForm("SearchResult", "UserProfile"))
+{
+    <div id="Search1">
+        
+        @Html.LabelFor(x => x.Search)
+        @Html.TextBoxFor(x => x.Search)
+
+        <input id="SearchSubmit" type="submit" value="Sök" />
+        <br/><br/>
+
+        @Html.ValidationMessageFor(x => x.Search)
+        
+
+        
+    </div>
+}
+
+@* Det måste finnas en partialView per sida som ska ha ett sökfält högst upp.
+    Detta för att "Beginform" specificerar vilken action i vilken controller som
+    ska aktiveras när man klickar på submitknappen. Nu så används metoden
+    "SearchResult" i controllern "UserProfile för detta formulär.
+    I en annan view ska ju denna partialView peka på en annan metod i en annan controller." *@

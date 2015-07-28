@@ -1,0 +1,108 @@
+﻿@using System.Security.Policy
+@using DAL
+@using DAL.Repositories
+@using Datingsite.Models
+@model Datingsite.Models.UserProfileModel.UserProfileModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutLoggedIn.cshtml";
+}
+
+<div id="SearchField">
+    @Html.Partial("_SearchFieldPartialView", new SearchModel())
+</div>
+
+@* Länk till profilen för den användare som är inloggad  <span class="glyphicon glyphicon-user"></span>*@
+@Html.ActionLink(@Model.LoggedInUser.FirstName + " " + @Model.LoggedInUser.LastName, "ProfileStart", "UserProfile", null, new { @id = "UserProfileButton" })
+
+@foreach (var user in Model.FriendRequests)
+{
+    Model.countFriendRequests++;
+}
+@*<button class="btn btn-default" type="button" id="FriendRequest" data-toggle="dropdown" aria-expanded="true">  </button>           <span class="glyphicon glyphicon-user"></span> *@
+@* Visar antalet friendrequests genom att lägga ikonen för en user med antalet friendrquests som tas fram i koden ovan *@
+<div id="FriendRequest">
+    <button class="btn btn-default" aria-expanded="true" type="button">
+        @Html.ActionLink("" + @Model.countFriendRequests, "FriendRequests", "FriendRequest", new { userID = @Model.LoggedInUser.UserID }, new { @class = "glyphicon glyphicon-user" })
+    </button>
+</div>
+
+<div id="UserProfile">
+    <div id="profilBild">
+        @* Ifall användaren har en profilbild, alltså att det inte är null visas bilden som är en byte[] och konverteraas därför först *@
+        @if (Model.Image != null)
+        {
+            <img src="data:image/png;base64,@System.Convert.ToBase64String(Model.Image.Picture)" alt="" height="180" width="150" />
+        }
+    </div>
+
+    <div id="profilInformation">
+
+        <font size="3">Namn:</font> @Model.User.FirstName @Model.User.LastName <br />
+        <font size="3">Ålder:</font> @Model.User.Age <br />
+        <font size="3">Stad: </font> @Model.User.City <br />
+        <font size="3">Email:</font> @Model.User.Email <br />
+        <font size="3">Mobil:</font> @Model.User.Phone <br />
+    </div>
+
+    <div id="profilKnappar">
+        @*Kollar så att lägg till vän bara finns ifall det inte redan är vänner, har blivit nekade eller har en friendrequest som väntar på svar
+        ikonen för att läga till vän via ikonen för användare med ett plus tecken *@
+        @if (Model.LoggedInUser.UserID != Model.User.UserID && FriendRequestRepository.ValidateFriendRequest(@Model.LoggedInUser.UserID, @Model.User.UserID) == null)
+        {
+            <div id="AddFriend">
+                <button class="btn btn-default" aria-expanded="true" type="button">
+                    @Html.ActionLink("" + "+", "AddFriend", "FriendRequest", new { friendID = @Model.User.UserID }, new { @class = "glyphicon glyphicon-user" })
+                </button>
+            </div><br />
+        }
+
+        @Html.ActionLink("Vänner", "FriendsList", "FriendsList", new { userID = @Model.User.UserID }, new { @id = "ProfileFriendButton" })
+
+        <br />
+
+
+    </div>
+
+
+</div>
+
+@* Texarea för att skicka medellande på användarens wall *@
+<div id="WriteOnWall">
+    <h4>Skriv ett meddelande till @Model.User.FirstName</h4>
+    <textarea id="sendMessage" cols="40" rows="5" style="width:250px;height:50px"></textarea><br />
+    <button onclick="sendMessageFunction(), clearMessageBox()">Skicka meddelandet</button>
+    @* postar medellandet samt skickas det med vems vägg som det är skrivet på(ownerid) *@
+    <script>
+        function sendMessageFunction() {
+            var ownerid = @Model.User.UserID;
+            var aMessage = document.getElementById('sendMessage').value;
+            $.post('/api/Wall/Post', { Comment: aMessage, WallOwnerID: ownerid }, function() {
+                window.location.reload();
+            });
+        }
+        function clearMessageBox() {
+            document.getElementById("sendMessage").value= "";
+        }
+    </script>
+</div>
+
+
+@* Hämtar alla kommentarer för den användarens profil som man är inne på(Model.User.UserID)
+och lägger till så att man ser vem det var som har skrivt medellandet *@
+<script>
+    $.get("/api/wall/getcommentsforuser?userid=@Model.User.UserID", function (data) {
+        
+        console.log(data);
+
+        for (var i in data) {
+            var emp = data[i];
+
+            $('#WriteOnWall').append('<div>' +
+                '<p>' + "Meddelande från " + emp.FirstName + " " + emp.LastName + '</p>' +
+                '<p>' + emp.Comment + '</p>' + '</div>');
+
+        }
+
+    });
+</script>

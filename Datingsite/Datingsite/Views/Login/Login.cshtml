@@ -1,0 +1,35 @@
+﻿@model Datingsite.Models.LoginModel.LoginModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink(@LoginStrings.Register, "Index", "Home", null, new { @id = "registrationLink" })
+<div id="ChangeLanguage">
+    @* Gör det möjligt att byta språk genom att trycka på dom 2 olika flaggorna, vilket ändrar ulr:en och nytt språk *@
+    <a href="@Url.Action("ChangeLanguage", "Login", new {lang = "sv-SE"}, null)"><img id="lngSwedish" src="~/Pictures/swedish.png" alt="" height="60" width="80" /></a>
+    <a href="@Url.Action("ChangeLanguage", "Login", new {lang = "en"}, null)"><img id="lngEnligsh" src="~/Pictures/english.png" alt="" height="60" width="80" /></a>
+</div>
+
+
+
+<div id="LoginWindow1">
+    @using (Html.BeginForm("Login", "Login"))
+    {
+        <div id="Loggain">
+            <br /><br />
+            @Html.LabelFor(x => x.Username)<br />
+            @Html.TextBoxFor(x => x.Username)<br/>
+            @Html.ValidationMessageFor(x => x.Username)<br />
+
+            <br />
+            @Html.LabelFor(x => x.Password)<br />
+            @Html.PasswordFor(x => x.Password)<br />
+            @Html.ValidationMessageFor(x => x.Password)<br />
+            @Html.ValidationSummary(true)
+
+
+            <br />
+            <input id="submitLogin" type="submit" value="@LoginStrings.Login" /><br />
+        </div>
+    }
+</div>

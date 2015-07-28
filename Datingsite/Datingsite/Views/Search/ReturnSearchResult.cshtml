@@ -1,0 +1,34 @@
+﻿@using Datingsite.Models
+@using DAL
+@model Datingsite.Models.SearchModel
+@{
+    Layout = "~/Views/Shared/_LayoutLoggedIn.cshtml";
+}
+
+<div id="SearchField">
+    @Html.Partial("_SearchFieldPartialViewForSearchResult", new SearchModel())
+</div>
+
+@* Länk till profilen för den användare som är inloggad *@
+@Html.ActionLink(@Model.User.FirstName + " " + @Model.User.LastName, "ProfileStart", "UserProfile", null, new { @id = "UserProfileButton" })
+
+<div id="SearchResult">
+    <br />
+    <h2>Sökreultat på användare</h2>
+    <br />
+    @if (Model.Users.Count == 0)
+    {
+        <li>Ingen användare hittades!</li>
+    <br /><br />
+    }
+    else
+    {
+        <ul>
+            @foreach (var user in Model.Users)
+            {
+                <br><li>@Html.ActionLink(@user.FirstName + " " + @user.LastName, "ProfileStartForOtherUser", "UserProfile", new {userID = @user.UserID}, null)</li><br/>
+            }
+        </ul>
+    }
+    <br />
+</div>

@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutForErrorPage.cshtml";
+}
+
+@Html.ActionLink("Startsida", "Index", "Home", null, new { @id = "registrationLink" })
+
+<div id="ErrorMessage">
+    <h2>
+        Oj då! Någonting verkar ha gått snett!
+        Klicka på länken för att ta dig tillbaka till startsidan!
+    </h2>
+</div>
+
+

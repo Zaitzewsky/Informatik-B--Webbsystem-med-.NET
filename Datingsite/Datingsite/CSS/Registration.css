@@ -1,0 +1,582 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+    background: url("/Pictures/date.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+a {
+    color:black
+}
+h2 {
+    padding-left: 50px;
+}
+ul {
+    padding-left: 100px;
+}
+
+a:visited {
+    color: black;
+
+}
+a:hover {
+    text-decoration: none;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 5px;
+    
+}
+
+header {  /*Header då man kommit till sidan för första gången o ska registrera sig*/
+    width: 100%;
+    height: 100px;
+    background-color: seagreen;
+    
+}
+
+#LoggedinHeader { /*header när man är inloggad*/
+    width: 100%;
+    height: 40px;
+    background-color: seagreen;
+    box-shadow: 0px 5px 20px 1px black;
+}
+
+
+
+@font-face{ /*Låter datorn använda ovanliga fonter */
+	font-family: brothersbold;
+	
+	/*Sökvägar till fontfilerna*/
+	src: url('Fonts/brothersbold.ttf'), /* Standard för apple och microsoft*/ 
+    url('Fonts/brothersbold.eot'), /* IE9+ */
+	url('Fonts/brothersbold.woff'); /*Moderna Webbläsare*/ 
+}
+
+/***************************************** Index TOP HEADER   ----------------------------Start--*/
+#ProfilLogoText {   /*logo-texten Partner where are u, när man är inloggad*/
+    font-size: 20px;
+    position: relative;
+    color: white;
+    left: 30px;
+    top: 7px;
+    width: 400px;
+    text-align: center;
+    font-family: brothersbold;
+}
+
+
+#registrationLink {
+    
+    position: absolute;
+    left: 80%;
+    top: 25px;
+    font-family: brothersbold;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 10px 30px 10px 30px; /* Här görs knappen större eller mindre..*******************************************/
+    background-color: seashell;
+    color: seagreen;
+    box-shadow:inset 0px 0px 5px 1px whitesmoke;
+    z-index: 2;
+}
+#registrationLink:hover {
+    box-shadow:inset 0px 0px 25px 5px lightgreen;
+}
+#registrationLink:active {
+    color: black;
+}
+
+#ChangeLanguage {
+    position: absolute;
+    left: 60%;
+    top: 25px;
+    z-index: 2;
+}
+#LogoText { /* Partner, where art though texten på registreringssidan.*/
+    font-size: 35px;
+    position: relative;
+    left: 250px;
+    top: 20px;
+    width: 550px;
+    text-align: center;
+    font-family: brothersbold;
+    color: seashell;
+    /*
+    border: 1px solid;
+    box-shadow: 0px 0px 25px 15px white;
+    border-radius: 25px 5px 25px 5px; */
+}
+/***************************************** Index TOP HEADER   ----------------------------Slut--*/
+/*
+
+*/
+/*
+
+*/
+/***************************************** Login View  ----------------------------Start--*/
+#login {   /* Login knappens css inställningar .*/
+    position: absolute;
+    font-family: brothersbold;
+    left: 80%;
+    top: 25px;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 10px 30px 10px 30px; /* Här görs knappen större eller mindre..*/
+    background-color: seashell;
+    color: seagreen;
+    box-shadow:inset 0px 0px 5px 1px whitesmoke;
+    z-index: 2;
+}
+#login:hover {
+    box-shadow:inset 0px 0px 25px 5px lightgreen;
+}
+#login:active {
+    color: black;
+}
+
+#LoginWindow1 {  /* DIV- på startsidan som innehåller login boxar.*/
+    
+    position: relative;
+    float: left;
+    top: 50px;
+    left: 200px;
+    width: 25%;
+    height: 440px;
+    border-radius: 40px 100px 40px 100px;
+    background-color: darkslategrey; /*Satte grön färg för att se hur stor diven var.*/
+}
+#Loggain { /*logga in div. som innehåller boxar för o logga in*/
+    position: relative;
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
+    
+}
+#submitLogin{ /* registrerings knappen på index.cshtml sidan. */
+	border-radius : 5px;
+	
+	font-size : 25px;
+    font-family: brothersbold;
+    color: whitesmoke;
+	padding : 10px 30px 10px 30px;
+    background-color: seagreen;
+    position: relative;
+    text-decoration: none;
+    z-index: 2;
+    cursor: pointer; /*Gör så att en finger-ikon kommer fram när man drar musen över knappen.*/
+    border-style: solid;
+    bottom: 35px;
+}
+#submitLogin:hover {
+    box-shadow:inset 0px 0px 25px 2px lightgreen;
+}
+#submitLogin:active {
+    color: black;
+}
+#LoginWindow label {
+    position: relative;
+    font-size: 25px;
+    color: black;
+}
+
+/***************************************** Login View  ----------------------------Slut--*/
+/*
+
+*/
+/*
+
+*/
+/***************************************** Registrerings View  ----------------------------Start--*/
+
+#RegistrationWindow1 {  /* DIV- på registreringssidan/startsidan som innehåller registreings boxar.*/
+    
+    position: relative;
+    float: left;
+    top: 50px;
+    left: 100px;
+    width: 45%;
+    height: 480px;
+    border-radius: 40px 100px 40px 100px;
+    background-color: darkslategrey; /*Satte grön färg för att se hur stor diven var.*/
+}
+
+
+#Registration {  /*ruta som innehåller förnam.efternamn, kön, email, ålder - på index sidan.*/
+    float: left;             
+    display: inline-block;
+    font-family: sans-serif;
+    position: absolute;
+    top: 40px;
+    left: 300px;
+    width: 210px;
+    height: 250px;
+    background-color: darkslategrey;
+    color: white;
+}
+#Registration2 { /*ruta som innehåller text boxar för användarnamn/lösenord o stad - på index sidan*/
+    float: left;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    font-family: sans-serif;
+    left: 50px;
+    top: 40px;
+    width: 200px;
+    height: 250px;
+    background-color: darkslategrey; 
+}
+
+#submitRegistration{ /* registrerings knappen på index.cshtml sidan. */
+	border-radius : 5px;
+    
+	font-size : 25px;
+    color: whitesmoke;
+	padding : 10px 30px 10px 30px;
+    font-family: brothersbold;
+    background-color: seagreen;
+    position: relative;
+    z-index: 2;
+    cursor: pointer; /*Gör så att en finger-ikon kommer fram när man drar musen över knappen.*/
+    left: 350px;
+    top: 410px;
+}
+#submitRegistration:hover {
+    box-shadow:inset 0px 0px 25px 2px lightgreen;
+}
+#submitRegistration:active {
+    color: black;
+}
+
+#submit:hover {
+    box-shadow:inset 0px 0px 25px 5px lightgreen;
+}
+
+input[type=submit] {
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+
+/* // Ifall man vill ändra utseendet på ValidationSummary. 
+.validation-summary-errors {
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+    font-weight: bold;
+    list-style-type: square;
+    
+} */
+
+ 
+#Members {
+    position: absolute;
+    display: inline;
+    left: 900px;
+    width: 150px;
+    height: 400px;
+    top: 150px;
+}
+
+
+.circularImage img {
+    
+         width: 150px;
+         height: 150px;
+         -webkit-border-radius: 300px;
+         -moz-border-radius: 300px;
+         -ms-border-radius: 300px;
+          -o-border-radius: 300px;
+          border-radius: 300px;
+          }
+/***************************************** Registrerings View  ----------------------------Slut--*/
+/*
+
+*/
+/*
+
+*/
+/***************************************** TOP HEADER  ----------------------------Start--*/
+#Kugghjulet { 
+    position: absolute;
+    left: 75%;
+    top: 2px;
+}
+#FriendRequest {
+    position: absolute;
+    left: 70%;
+    top: 2px;
+}
+#dropdownLoggaut {
+    position: absolute;
+    left: 80%;
+    top: 2px;
+}
+#ProfilFält {   /*Profilfältet längs upp til höger med länkarna: vänförfrågning, redigera profil och logga ut.*/
+    position: relative;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-style: normal;
+    left: 75%;
+    bottom: 122px;
+    height: 24px;
+    width: 320px;
+    text-align: center;
+    background-color: darkturquoise; 
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0px 0px 5px 1px black;
+    padding: 2px 1px 0px 5px;
+}
+
+#UserProfileButton /* Knapp med firstname och lastname som ligger längs upp på sidan. länken tar en till ens egen profilsida.*/
+{
+    position: absolute;
+    font-family: brothersbold;
+    left: 50%;
+    top: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 2px 5px 2px 5px; /* Här görs knappen större eller mindre..*/
+    background-color: seashell;
+    color:seagreen;
+    box-shadow: 0px 0px 5px 1px black;
+    z-index: 2; 
+}
+/***************************************** TOP HEADER  ----------------------------Slut--*/
+/*
+
+*/
+/*
+
+*/
+/***************************************** Sök funktionen  ----------------------------Start--*/
+
+#SearchField /*Sökfältet som alltid finns längst upp på sidan när man är inloggad */ {
+    position: relative;
+    background-color: seagreen;
+    bottom: 52px;
+    left: 400px;
+    width: 350px;
+    height: 20px;
+}
+#Search1 /*Sökfältet- hänger ihop med searchfield. typ -.- */ {
+    position: absolute;
+    background-color: seagreen;
+    width: 300px;
+    height: 20px;
+}
+
+#SearchResult {   /*DIV som listar användarna som matchar.*/
+
+    padding-left: 40px; 
+    left: 100px;
+      box-shadow: 0px 0px 5px 1px black;
+    display: inline-block;
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: white;
+    border-radius: 100px;
+    background-color: darkslategrey;
+    left: 100px;
+    height: 420px;
+    width: 70%;
+}
+/***************************************** Sök funktionen  ----------------------------Slut--*/
+/*
+
+*/
+/*
+
+*/
+/***************************************** ProfileStart View  ----------------------------Start--*/
+
+#UserProfile /* Ruta som innehåler profilinformation. */
+{
+    box-shadow: 0px 0px 5px 1px black;
+    display: inline-block;
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: white;
+    
+    border-radius: 0px 40px 40px 0px;
+    background-color: darkslategrey;
+    left: 100px;
+    height: 200px;
+    width: 60%;
+}
+
+#profilKnappar  /* knappar som lägg till vän och Vänner finns i denna div.*/
+{
+    height: 100px;
+    padding-left: 10px;
+    bottom: 120px;
+    width: 200px;
+    border-radius: 20px;
+    position: relative;
+    left:570px;
+}
+
+#AddProfileFriendButton { /*Knappen Lägg Till Vän på profilstart.*/
+      
+    font-family: brothersbold;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px 25px 10px 20px; /* Här görs knappen större eller mindre..*/
+    background-color: seashell;
+    color:seagreen;
+    box-shadow: 0px 0px 5px 1px black;
+    z-index: 2; 
+    
+}
+#ProfileFriendButton { /* VÄnner knapp på profilstart .*/
+      
+    font-family: brothersbold;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px 25px 10px 20px; /* Här görs knappen större eller mindre..*/
+    background-color: seashell;
+    color:seagreen;
+    box-shadow: 0px 0px 5px 1px black;
+    z-index: 2; 
+    
+}
+#profilInformation /* Uppgifter med namn,email,stad,ålder inom stora profilfältet.*/
+{
+    display: inline-block;
+    font-family: sans-serif;
+    position: absolute;
+    left: 180px;
+    bottom: 30px;
+    
+}
+#profilBild  /* div som ska innehålla ens profilbild*/
+{
+    
+    position: relative;
+    left: 10px;
+    top: 10px;
+    display: inline-block;
+    max-height: 180px;
+    max-width: 150px;
+    height: 180px;
+    width: 150px;
+    background-color: black;   
+    box-shadow: 0px 0px 1px 1px black;
+}
+#wallcomments  /*Wall på Profilstart*/
+{
+    position: relative;
+    left: 100px;
+    border-radius: 0px;
+    font-family: sans-serif;
+    width: 70%;
+    top: 200px;
+    color: black;
+    background-color: whitesmoke;    
+    box-shadow: 0px 0px 5px 1px black;
+}
+
+#WriteOnWall  /*Wall på Profilstart*/
+{
+    border-radius: 20px;
+    width: 40%;
+    left: 100px;
+    font-family: sans-serif;
+    position: relative;
+    text-align: center;
+    top: 200px;
+    background-color: whitesmoke;    
+    box-shadow: 0px 0px 5px 1px black;
+}
+
+/***************************************** ProfileStart View  ---------------------------Slut---*/
+
+
+/****************************************    EditProfile View ---------------------------Start----*/
+
+#submiteditprofile { /*Knapp på editprofil sidan som uppdaterar information. */
+    position: absolute;
+    top: 480px;
+    left: 350px;
+    font-family: brothersbold;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 2px 5px 2px 5px; /* Här görs knappen större eller mindre..*/
+    background-color: seashell;
+    color:seagreen;
+    box-shadow: 0px 0px 5px 1px black;
+    z-index: 2; 
+}
+#EditProfilWindow { /*Stora Diven som innehåller all info om användare-  Edit profil- sidan*/
+    background-color: darkslategrey;
+    color: black;
+    box-shadow: 0px 0px 10px 5px black;
+    position: relative;
+    width: 70%;
+    height: 600px;
+    border-radius: 20px;
+    left: 100px;
+}
+#ImageUpload { /* Div som innehåller profilbild på Edit-profil sidan.*/
+    position: absolute;
+    left: 600px;
+    bottom: 170px;
+    padding-left:40px;
+    height: 400px;
+    width: 250px;
+    border-left-style: solid;
+}
+#EditProfil1 { /* Div som inehåller Förnamn, Efternamn, Telefonnr mm. finns på editprofil sidan.*/
+    
+    position: relative;
+    left: 50px;
+    top: 19px;
+    width: 300px;
+}
+#EditProfil2 {  /* Div som inehåller profil status, användarnamn, lösenord mm. finns på editprofil sidan.*/
+    position: relative;
+    left: 350px;
+    bottom: 400px;
+    width: 300px;
+}
+
+/****************************************    EditProfile View ---------------------------Slut----*/
+#FriendList {
+    box-shadow: 0px 0px 5px 1px black;
+    display: inline-block;
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: white;
+    border-radius: 100px;
+    background-color: darkslategrey;
+    left: 100px;
+    height: 420px;
+    width: 70%;
+}
+
+#ErrorMessage {
+    float: left;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    font-family: sans-serif;
+    left: 500px;
+    top: 150px;
+    width: 300px;
+    height: 150px;
+    background-color: darkslategrey;
+    border-radius: 10px;
+    padding : 10px 30px 10px 30px;
+    box-shadow: 0px 0px 100px black;
+}
