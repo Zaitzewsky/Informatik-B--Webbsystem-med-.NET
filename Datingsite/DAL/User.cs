@@ -14,14 +14,15 @@ namespace DAL
     
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
             this.FriendRequests = new HashSet<FriendRequest>();
+            this.FriendRequests1 = new HashSet<FriendRequest>();
             this.Images = new HashSet<Image>();
             this.Walls = new HashSet<Wall>();
             this.Walls1 = new HashSet<Wall>();
             this.Visiteds = new HashSet<Visited>();
-            this.FriendRequests1 = new HashSet<FriendRequest>();
         }
     
         public int UserID { get; set; }
@@ -36,13 +37,19 @@ namespace DAL
         public string City { get; set; }
         public int PreferedGender { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FriendRequest> FriendRequests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FriendRequest> FriendRequests1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Image> Images { get; set; }
         public virtual Login Login { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wall> Walls { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wall> Walls1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Visited> Visiteds { get; set; }
         public virtual Visited Visited { get; set; }
-        public virtual ICollection<FriendRequest> FriendRequests1 { get; set; }
     }
 }

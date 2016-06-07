@@ -19,8 +19,8 @@ namespace DAL.Repositories
             using (var context = new DatabaseEntities())
             {
             var result = context.Walls
-                    .Include(x => x.WallSender)
-                    .Include(x => x.WallOwner)
+                    .Include(x => x.User1)
+                    .Include(x => x.User)
                     .Where(x => x.WallOwnerID == wallOwnerID)
                     .OrderByDescending(x => x.Date)
                     .ToList();

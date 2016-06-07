@@ -20,7 +20,7 @@ namespace DAL
         public string Comment { get; set; }
         public System.DateTime Date { get; set; }
     
-        public virtual User WallSender { get; set; }
-        public virtual User WallOwner { get; set; }
+        public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
     }
 }

@@ -9,6 +9,7 @@
     <Property Name="FriendID" Type="Int32" Nullable="false" />
     <Property Name="Status" Type="Int32" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_FriendID_ToUser" FromRole="FriendRequest" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_UserID_ToUser" FromRole="FriendRequest" ToRole="User" />
   </EntityType>
   <EntityType Name="Image">
     <Key>
@@ -44,6 +45,7 @@
     <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PreferedGender" Type="Int32" Nullable="false" />
     <NavigationProperty Name="FriendRequests" Relationship="Self.FK_FriendID_ToUser" FromRole="User" ToRole="FriendRequest" />
+    <NavigationProperty Name="FriendRequests1" Relationship="Self.FK_UserID_ToUser" FromRole="User" ToRole="FriendRequest" />
     <NavigationProperty Name="Images" Relationship="Self.FK_Image_ToUser" FromRole="User" ToRole="Image" />
     <NavigationProperty Name="Login" Relationship="Self.FK_User_ToLogin" FromRole="User" ToRole="Login" />
     <NavigationProperty Name="Walls" Relationship="Self.FK_SenderID_ToUser" FromRole="User" ToRole="Wall" />
@@ -83,6 +85,18 @@
       </Principal>
       <Dependent Role="FriendRequest">
         <PropertyRef Name="FriendID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserID_ToUser">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="FriendRequest" Type="Self.FriendRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="FriendRequest">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -166,6 +180,10 @@
     <EntitySet Name="Walls" EntityType="Self.Wall" />
     <EntitySet Name="Visiteds" EntityType="Self.Visited" />
     <AssociationSet Name="FK_FriendID_ToUser" Association="Self.FK_FriendID_ToUser">
+      <End Role="User" EntitySet="Users" />
+      <End Role="FriendRequest" EntitySet="FriendRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserID_ToUser" Association="Self.FK_UserID_ToUser">
       <End Role="User" EntitySet="Users" />
       <End Role="FriendRequest" EntitySet="FriendRequests" />
     </AssociationSet>

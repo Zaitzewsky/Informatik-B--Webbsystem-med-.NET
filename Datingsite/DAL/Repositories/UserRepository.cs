@@ -80,7 +80,7 @@ namespace DAL.Repositories
                     x.UserID.Equals(userID));
             }
         }
-        
+
         /// <summary>
         /// Returnerar en användare baserat på det UserID som skickas in.
         /// </summary>

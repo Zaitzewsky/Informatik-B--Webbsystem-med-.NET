@@ -35,8 +35,8 @@ namespace Example.Web.Api.Models
             this.WallSenderID = w.SenderID;
             this.Comment = w.Comment;
             this.CommentDate = w.Date;
-            this.FirstName = w.WallSender.FirstName;
-            this.LastName = w.WallSender.LastName;
+            this.FirstName = w.User1.FirstName;
+            this.LastName = w.User1.LastName;
         }
     }
 }

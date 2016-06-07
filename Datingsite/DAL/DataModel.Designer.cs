@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Maria\Documents\Informatik B, Webbsystem med .NET\Team Foundation Server\DatingSite\Datingsite_1\DAL\DataModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Users\JacintoIgor\Desktop\Informatik-B--Webbsystem-med-.NET-master\Datingsite\DAL\DataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
